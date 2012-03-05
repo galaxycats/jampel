@@ -4,4 +4,4 @@
 Copy the `config.example.json` file with your jenkins settings to `~/.jampel_config.json`.
 
 ## Run
-Install all dependecies with bundler and run the app with `bundlex exec thor server:start`. 
+Install all dependecies with bundler and run the app with `bundle exec thor server:start`. 
