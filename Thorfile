@@ -2,24 +2,30 @@ require "./jampel.rb"
 
 class Server < Thor
 
+  no_tasks do
+    def start_process(command)
+      exec(command)
+    end
+  end
+
   desc "run_in_fg", "start daemon NOT in background"
   def run_in_fg
-    `ruby ./lib/control.rb run`
+    start_process('ruby ./lib/control.rb run')
   end
   
   desc "start", "start daemon in background"
   def start
-    `ruby ./lib/control.rb start`
+    start_process('ruby ./lib/control.rb start')
   end
   
   desc "stop", "stop background daemon"
   def stop
-    `ruby ./lib/control.rb stop`
+    start_process('ruby ./lib/control.rb stop')
   end
   
   desc "restart", "restart background daemon"
   def restart
-    `ruby ./lib/control.rb restart`
+    start_process('ruby ./lib/control.rb restart')
   end
 
 end
