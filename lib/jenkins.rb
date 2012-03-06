@@ -56,11 +56,15 @@ class Jenkins
     
     def perform_request
       request = prepare_request
-      request.perform
-      if request.response_code == 200
-        self.api_response = Yajl::Parser.new.parse(request.body_str)
-      else
-        raise "API Request failed: #{request.response_code}"
+      begin
+        request.perform
+        if request.response_code == 200
+          self.api_response = Yajl::Parser.new.parse(request.body_str)
+        else
+          raise "API Request failed: #{request.response_code}"
+        end
+      rescue Curl::Err::HostResolutionError => e
+        puts e.to_s
       end
     end
     

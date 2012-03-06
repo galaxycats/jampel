@@ -2,7 +2,7 @@ require "./jampel.rb"
 
 class Server < Thor
 
-  desc "run", "start daemon NOT in background"
+  desc "run_in_fg", "start daemon NOT in background"
   def run_in_fg
     `ruby ./lib/control.rb run`
   end

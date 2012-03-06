@@ -10,7 +10,8 @@ class Jampel
   attr_reader :jenkins
   
   def initialize
-    @jenkins = Jenkins.new(Yajl::Parser.new.parse(File.open(File.join(File.dirname(__FILE__), './config.json'))))
+    config_path = File.expand_path('~/.jampel_config.json')
+    @jenkins = Jenkins.new(Yajl::Parser.new.parse(File.open(config_path)))
   end
   
   def update
