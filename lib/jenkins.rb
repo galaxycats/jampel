@@ -63,7 +63,8 @@ class Jenkins
         else
           raise "API Request failed: #{request.response_code}"
         end
-      rescue Curl::Err::HostResolutionError => e
+      rescue Curl::Err => e
+        # The net is not reliable, so just swallow all request related errors and try it again
         puts e.to_s
       end
     end
