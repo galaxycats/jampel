@@ -46,7 +46,11 @@ class Ampel
     end
     
     def switch(device, call)
-      Curl::Easy.new("http://192.168.0.232/ecmd?$#{device}-#{call}").perform
+      begin
+        Curl::Easy.new("http://192.168.0.232/ecmd?$#{device}-#{call}").perform
+      rescue Curl::Err::ConnectionFailedError => e
+        puts "Could not switch Ampel cause of #{e}"
+      end
     end
     
   end
