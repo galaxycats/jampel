@@ -60,6 +60,18 @@ class Jenkins
       build_state <=> other.build_state
     end
 
+    def failed?
+      build_state.failed?
+    end
+
+    def success?
+      build_state.success?
+    end
+
+    def building?
+      build_state.building?
+    end
+
     private
       
       def perform_request
@@ -87,18 +99,6 @@ class Jenkins
       def update_state
         self.old_build_state = build_state
         self.build_state = BuildState.new(api_response)
-      end
-
-      def failed?
-        build_state.failed?
-      end
-
-      def success?
-        build_state.success?
-      end
-
-      def building?
-        build_state.building?
       end
       
   end
