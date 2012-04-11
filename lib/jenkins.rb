@@ -37,8 +37,6 @@ class Jenkins
       def <=>(other)
         build_state <=> other.build_state
       end
-
-
       
     end
 

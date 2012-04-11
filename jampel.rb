@@ -11,6 +11,7 @@ class Jampel
   
   def initialize
     config_path = File.expand_path('~/.jampel_config.json')
+    Ampel.reset
     @jenkins = Jenkins.new(Yajl::Parser.new.parse(File.open(config_path)))
   end
   
