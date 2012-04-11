@@ -1,7 +1,11 @@
 /* rename to config.json */
 {
-  "url" : "http://build.example.com/job/project_name/lastBuild/api/json",
   /* if you need http basic auth */
   "username" : "username",
-  "password" : "password"
+  "password" : "password",
+  "projects" : [
+    "http://build.example.com/job/project_one_name/lastBuild/api/json",
+    "http://build.example.com/job/project_two_name/lastBuild/api/json"
+  ]
+
 }
