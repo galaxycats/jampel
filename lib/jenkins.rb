@@ -33,6 +33,12 @@ class Jenkins
       def ==(other)
         build_state == other.build_state
       end
+
+      def <=>(other)
+        build_state <=> other.build_state
+      end
+
+
       
     end
 
@@ -46,8 +52,13 @@ class Jenkins
     end
     
     def fetch_status
+      puts "fetching state for #{project_url}"
       perform_request
       update_state
+    end
+
+    def <=>(other)
+      build_state <=> other.build_state
     end
 
     private
@@ -130,9 +141,9 @@ class Jenkins
       else
         if all_project_successful?
           success_callback
-        elsif build_state.failed?
+        elsif any_project_failed?
           failed_callback
-        elsif build_state.building?
+        elsif any_project_building?
           building_callback
         end
       end
