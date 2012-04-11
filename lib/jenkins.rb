@@ -52,7 +52,6 @@ class Jenkins
     end
     
     def fetch_status
-      puts "fetching state for #{project_url}"
       perform_request
       update_state
     end
