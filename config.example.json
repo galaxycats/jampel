@@ -1,11 +1,10 @@
-/* rename to config.json */
+/* put this to ~/.jampel_config.json */
 {
-  /* if you need http basic auth */
-  "username" : "username",
-  "password" : "password",
   "projects" : [
     "http://build.example.com/job/project_one_name/lastBuild/api/json",
     "http://build.example.com/job/project_two_name/lastBuild/api/json"
-  ]
-
+  ],
+  /* if you need http basic auth */
+  "username" : "username",
+  "password" : "password"
 }
