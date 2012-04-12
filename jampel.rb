@@ -3,6 +3,7 @@ require 'yajl'
 
 require 'wirble'
 require File.join(File.dirname(__FILE__), './lib/ampel.rb')
+require File.join(File.dirname(__FILE__), './lib/project.rb')
 require File.join(File.dirname(__FILE__), './lib/jenkins.rb')
 
 class Jampel
