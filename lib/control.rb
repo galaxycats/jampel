@@ -1,5 +1,5 @@
 require "daemons"
-require File.join(File.dirname(__FILE__), './../jampel.rb')
+require File.expand_path File.join(File.dirname(__FILE__), *%w[.. jampel])
 
 Daemons.run_proc('jampel_control') do
   loop do
