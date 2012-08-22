@@ -21,6 +21,7 @@ class Server < Thor
   desc "stop", "stop background daemon"
   def stop
     start_process('ruby ./lib/control.rb stop')
+    Ampel.reset
   end
   
   desc "restart", "restart background daemon"
